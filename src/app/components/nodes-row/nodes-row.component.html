@@ -1,0 +1,69 @@
+<td>{{ node.name }}</td>
+<!-- <td [class.table-danger]="isDanger('cpu')"></td> -->
+<td>{{ node.cpu.used }}/{{ node.cpu.available }}</td>
+<td>
+  <p>
+    <ngb-progressbar
+      [value]="(node.cpu.used / node.cpu.available) * 100"
+      [showValue]="true"
+    >
+    </ngb-progressbar>
+  </p>
+</td>
+<td></td>
+<td>{{ node.mem.used }}/{{ node.mem.available }}</td>
+<td>
+  <p>
+    <ngb-progressbar
+      textType="white"
+      [value]="(node.mem.used / node.mem.available) * 100"
+      [showValue]="true"
+      id="memId"
+    >
+    </ngb-progressbar>
+  </p>
+</td>
+<td>
+  <button
+    type="button"
+    class="btn btn-primary"
+    (click)="showModal(content, node)"
+  >
+    View
+  </button>
+</td>
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{ currentNode["name"] }}</h4>
+  </div>
+  <span class="badge badge-primary">Primary</span>
+
+  <div class="modal-body">
+    <!-- <div class="card card-block">
+      CPU available {{ currentNode.cpu.available }} <br />
+      CPU consumption {{ currentNode.cpu.used }} <br />
+
+      MEM available {{ currentNode.mem.available }} <br />
+      MEM consumption {{ currentNode.mem.used }}
+    </div> -->
+    <app-chart
+      [barChartData]="[
+        (currentNode.mem.used / currentNode.mem.available) * 100
+      ]"
+      [barChartLabels]="[['Mem']]"
+    ></app-chart>
+
+    <app-chart
+      [barChartData]="[
+        (currentNode.cpu.used / currentNode.cpu.available) * 100
+      ]"
+      [barChartLabels]="[['Cpu']]"
+    ></app-chart>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">
+      Close
+    </button>
+  </div>
+</ng-template>

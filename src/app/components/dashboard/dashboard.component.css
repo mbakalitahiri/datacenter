@@ -1,0 +1,16 @@
+.cluster-row-dark {
+  /* background-color: black; */
+  color: black;
+}
+
+.black {
+  color: black;
+}
+
+.white{
+  color: #000;
+}
+
+.badge-secondary{
+  color: gray;
+}

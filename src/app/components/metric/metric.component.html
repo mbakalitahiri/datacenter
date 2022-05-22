@@ -1,0 +1,21 @@
+<div class="card card-block">
+  <div class="card-body">
+    <nav
+      class="navbar mb-1"
+      [ngClass]="{ 'bg-danger': isDanger(), 'bg-success': !isDanger() }"
+    >
+      <span class="text-center metrics-color-title">{{ title }}</span>
+    </nav>
+    <h4 class="card-title text-center">{{ value }}/{{ max }}</h4>
+    <p class="card-text text-center">
+      {{ description }}
+    </p>
+    <ngb-progressbar
+      [value]="value"
+      [max]="max"
+      [type]="isDanger() ? 'danger' : 'success'"
+      [showValue]="true"
+    >
+    </ngb-progressbar>
+  </div>
+</div>

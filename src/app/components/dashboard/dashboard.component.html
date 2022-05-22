@@ -1,0 +1,78 @@
+<span class="badge badge-secondary">Overall consumption</span>
+<div class="container">
+  <div class="card card-block">
+    <nav class="navbar mb-1"></nav>
+    <div class="row">
+      <app-metric
+        class="col-sm-6"
+        [used]="cpu.used"
+        [available]="cpu.available"
+        [title]="'CPU'"
+        [description]="'utilization of CPU cores'"
+      >
+      </app-metric>
+
+      <app-metric
+        class="col-sm-6"
+        [used]="mem.used"
+        [available]="mem.available"
+        [title]="'Memory'"
+        [description]="'utilization of memory in GB'"
+      >
+      </app-metric>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-2">
+  <div class="card card-block">
+    <div class="card-body">
+      <nav class="navbar mb-1">
+        <span class="badge badge-secondary black">Cluster 001</span>
+      </nav>
+      <table app-nodes class="table">
+        <tr
+          app-nodes-row
+          *ngFor="let node of cluster1"
+          [node]="node"
+          class="cluster-row-dark"
+        ></tr>
+      </table>
+      <nav class="navbar mb-1">
+        <span class="badge badge-secondary black">Cluster 002</span>
+      </nav>
+      <table app-nodes class="table">
+        <tr
+          app-nodes-row
+          *ngFor="let node of cluster2"
+          [node]="node"
+          class="cluster-row-dark"
+        ></tr>
+      </table>
+
+      <nav class="navbar mb-1">
+        <span class="badge badge-secondary black">Cluster 003</span>
+      </nav>
+      <table app-nodes class="table">
+        <tr
+          app-nodes-row
+          *ngFor="let node of cluster3"
+          [node]="node"
+          class="cluster-row-dark"
+        ></tr>
+      </table>
+
+      <nav class="navbar mb-1">
+        <span class="badge badge-secondary black">Cluster 004</span>
+      </nav>
+      <table app-nodes class="table">
+        <tr
+          app-nodes-row
+          *ngFor="let node of cluster4"
+          [node]="node"
+          class="cluster-row-dark"
+        ></tr>
+      </table>
+    </div>
+  </div>
+</div>

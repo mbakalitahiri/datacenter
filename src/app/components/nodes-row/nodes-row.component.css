@@ -1,0 +1,20 @@
+.amargado {
+  background-color: red;
+}
+
+.relaxed {
+  background-color: green;
+  color: white;
+}
+
+.reset {
+  background-color: rgb(76, 128, 207);
+}
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited {
+  background-color: #0d6efd !important;
+}
+
+
